@@ -6,11 +6,11 @@
 /*   By: mprokope <mprokope@student.42vienna.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:21:09 by mprokope          #+#    #+#             */
-/*   Updated: 2025/10/17 03:54:41 by mprokope         ###   ########.fr       */
+/*   Updated: 2025/10/17 04:54:59 by mprokope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 #include "ft_printf.h"
 
 int	print_s(char *str)

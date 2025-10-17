@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mprokope <mprokope@student.42vienna.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 20:48:41 by mprokope          #+#    #+#             */
-/*   Updated: 2025/10/17 04:34:19 by mprokope         ###   ########.fr       */
+/*   Created: 2025/10/08 03:00:23 by mprokope          #+#    #+#             */
+/*   Updated: 2025/10/11 16:29:27 by mprokope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*temp;
 
-int	print_u(unsigned int num);
-int	print_s(char *str);
-int	print_d(int num);
-int	ft_printf(const char *format, ...);
-int	print_x(unsigned long long num, int mode);
-int	print_p(void *ptr);
-
-#endif
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		(*del)((*lst)->content);
+		free(*lst);
+		*lst = temp;
+	}
+	*lst = NULL;
+}

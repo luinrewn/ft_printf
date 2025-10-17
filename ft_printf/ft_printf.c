@@ -6,12 +6,12 @@
 /*   By: mprokope <mprokope@student.42vienna.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 14:54:04 by mprokope          #+#    #+#             */
-/*   Updated: 2025/10/17 03:46:29 by mprokope         ###   ########.fr       */
+/*   Updated: 2025/10/17 04:55:18 by mprokope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
+#include "libft/libft.h"
 
 int	print_p(void *ptr)
 {
@@ -26,9 +26,6 @@ int	print_p(void *ptr)
 
 int	parse(const char *format, va_list args)
 {
-	int	i;
-
-	i = 0;
 	if (*format == '%')
 		return (write(1, "%", 1));
 	if (*format == 'c')
@@ -51,14 +48,11 @@ int	parse(const char *format, va_list args)
 
 int	ft_printf(const char *format, ...)
 {
-	int		n_args;
-	int		i;
 	va_list	args;
 	int		written;
 
 	written = 0;
 	va_start(args, format);
-	i = 0;
 	if (!format)
 		return (-1);
 	while (*format)
